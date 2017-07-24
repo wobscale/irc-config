@@ -10,7 +10,7 @@ Set up a script that'll dump the appropriate commands through hashpipe (note bot
 
 (cat /opt/irc-config/oper-cmd;\
 sleep 10; \
-echo "REHASH :ssl"; \
+echo "REHASH -ssl"; \
 sleep 2; \
 echo "SAJOIN operbot #wobscale";  \
 sleep 2; \

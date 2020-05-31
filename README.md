@@ -1,13 +1,17 @@
 # Wobscale IRC Config
 
-This is the home of configuration and documentation related to the running of the Wobscale IRC Network
+This is the home of configuration and documentation related to the running of
+the Wobscale IRC Network
 
-## Example manual configuration
+## Example configuration
 
-Currently, all documentation expects that you're running Container Linux by CoreOS.
+IRC Servers in the network are run and configured using [NixOS](https://nixos.org/).
 
-If you're on AWS, I recommend creating an EIP and associating it to the instance.
+This repository contains a nixos module which provides a set of options that
+vary between servers on the network.
 
-Make sure the following ports are allowed: 6697-7001,5999,8501,13001,6665-6669,4080
+The module includes tls certificate creation and rotation, among other goodies.
 
-`sudo hostnamectl set-hostname $name`
+[example-configuration.nix](./example-configuration.nix) contains a complete
+and somewhat commented example of a `configuration.nix` using the module
+provided in this repository.

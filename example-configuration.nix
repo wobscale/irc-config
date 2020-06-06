@@ -22,7 +22,7 @@ let
   });
   wobscale-irc-overlay = import (builtins.fetchGit {
     url = "https://github.com/wobscale/irc-config.git";
-    # rev = ... fill me in please!
+    rev = "1204d1e79075261c1eb29e6ca81f858b70fba82f";
   });
   # This probably shouldn't be necessary, but it's the way I coudl get a
   # reference to the module in that overlay.

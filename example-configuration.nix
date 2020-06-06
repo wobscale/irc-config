@@ -20,10 +20,11 @@ let
       });
     });
   });
-  wobscale-irc-overlay = import (builtins.fetchGit {
+  wobscale-irc-overlay = builtins.fetchGit {
     url = "https://github.com/wobscale/irc-config.git";
+    ref = "refs/pull/12/head";
     rev = "1204d1e79075261c1eb29e6ca81f858b70fba82f";
-  });
+  };
   # This probably shouldn't be necessary, but it's the way I coudl get a
   # reference to the module in that overlay.
   nixek = import <nixos> {
@@ -41,7 +42,7 @@ in
   imports = [
     <nixpkgs/nixos/modules/virtualisation/amazon-image.nix>
     nixek.modules.inspircd
-    wobscale-irc-overlay.wobscale-irc
+    "${wobscale-irc-overlay}/modules/wobscale-irc.nix"
   ];
   ec2.hvm = true;
   # Either disable the firewall, or let through every irc port.

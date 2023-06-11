@@ -159,6 +159,14 @@ in
         '';
       };
 
+      ulines = mkOption {
+        type = types.listOf types.str;
+        default = [];
+        description = ''
+          List of servers to silently uline
+        '';
+      };
+
       motd = mkOption {
         type = types.path;
         default = defaultMOTD;
@@ -321,6 +329,8 @@ in
           motd = cfg.motd;
           rules = cfg.rules;
         }];
+
+        uline = builtins.map (n: { server = n; silent = "yes"; }) cfg.ulines;
 
         channels = [{
           uses = "30";
